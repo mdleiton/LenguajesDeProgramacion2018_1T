@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora de Indice de masa corporal </title>
+	<meta name="description" content="calculadora indice de masa corporal">
+	<meta name="keywords" content="imc">
+	<meta autor="author" content="Mauricio Leiton"> 
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script type="text/javascript"> 
+		function calcularIMC() {
+			var masa = document.getElementById("masa").value;
+			var altura = document.getElementById("altura").value;
+			
+			if( masa ==""){
+			 	alert("Por favor ingrese un valor válido para su masa corporal");
+			 	return;
+			}
+			if( altura ==""){
+			 	alert("Por favor ingrese un valor válido para su altura");
+			 	return;
+			}
+
+			var imc = masa / (altura*altura);
+			
+			document.getElementById("resultado").innerHTML= "Su indice de masa corporal es :"+imc.toFixed(3);
+			
+			var categoria;
+			
+			if(imc < 15){
+				categoria = "Peso extremadamente bajo.";
+			}else if(imc < 16){
+				categoria = "Peso severamente bajo.";
+			}else if(imc < 18.5){
+				categoria = "Peso bajo.";
+			}else if(imc < 25){
+				categoria = "Peso normal.";
+			}else if(imc < 30){
+				categoria = "Sobrepeso.";
+			}else if(imc < 35){
+				categoria = "Obesidad clase I.";
+			}else if(imc < 40){
+				categoria = "Obesidad clase II.";
+			}else if(imc < 45){
+				categoria = "Obesidad clase III.";
+			}else if(imc < 50){
+				categoria = "Obesidad clase IV.";
+			}else if(imc < 60){
+				categoria = "Obesidad clase V.";
+			}else {
+				categoria = "Obesidad clase VI.";
+			}
+			
+			document.getElementById("categoria").innerHTML= "Por lo tanto tiene un(a):"+categoria;
+			
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<header>
+		<h1 class="text-center">Calculadora de Indice de masa corporal</h1>
+	</header>
+
+	<section>
+		<div class="form-group text-center">
+			<label for="masa" >Masa(kilogramos)</label>
+			<input id="masa" step="any" type="number" class="form-control" placeholder="ingrese su masa en kilogramos" >
+		</div>
+		<div class="form-group text-center">
+			<label for="altura"  >Altura(metros)</label>
+			<input type="number" step="any" id="altura" class="form-control"  placeholder="ingrese su altura en metros" >
+		</div >
+		<div class="form-group text-center">
+			<button onclick="calcularIMC()" class="btn-lg btn-primary">Calcular</button>
+		</div>
+		<div class="text-center">
+			<label id="resultado" ></label>
+		</div>
+		<div class="text-center">
+			<label id="categoria" ></label>
+		</div>
+			
+	</section>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<footer class="text-center">
+		<strong>Copyright Leiton@2018</strong>
+	</footer>
+</body>
+
+</html>
